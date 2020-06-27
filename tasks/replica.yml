@@ -1,0 +1,24 @@
+---
+
+- name: import common tasks
+  import_tasks: common.yml
+  
+- name: set /etc/resolv.conf
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+
+- name: install IPA replica
+  command: |
+    ipa-replica-install \
+    --setup-dns \
+    --setup-ca \
+    --realm={{ realm }} \
+    --domain={{ domain }} \
+    --admin-password={{ admin_password }}
+    --hostname={{ inventory_hostname_short  }}.{{ domain }} \
+    --unattended \
+    --mkhomedir \
+    --setup-dns \
+    --forwarder={{ forwarder_1 }} \
+    --forwarder={{ forwarder_2 }}

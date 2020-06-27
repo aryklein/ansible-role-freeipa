@@ -1,0 +1,10 @@
+---
+
+ipa_op: ''
+primary_ip: 10.10.10.10
+domain: ipa.test
+realm: IPA.TEST
+dm_password: Secret123
+admin_password: Secret1234
+forwarder_1: 1.1.1.1
+forwarder_2: 8.8.8.8

@@ -1,2 +1,2 @@
-# ansible-role-freeipa
-Ansible role to create a FreeIPA cluster
+# infra-roles-freeipa
+Ansible role to deploy and manage an IPA cluster

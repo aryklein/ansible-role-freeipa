@@ -1,0 +1,12 @@
+---
+
+- name: Upagrade vm(s)
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: upgrade all packages
+      dnf:
+        name: "*"
+        state: latest

@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.provision :ansible do |ansible|
+    ansible.playbook = "upgrade-all.yml"
+  end
+
+  config.vm.define "primary" do |primary|
+    primary.vm.box = "centos/8"
+    primary.vm.hostname = "primary"
+    primary.vm.provider "libvirt" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
+  end
+
+  config.vm.define "replica" do |replica|
+    replica.vm.box = "centos/8"
+    replica.vm.hostname = "replica"
+    replica.vm.provider "libvirt" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
+  end
+
+end

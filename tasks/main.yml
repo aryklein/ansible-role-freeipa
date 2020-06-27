@@ -1,0 +1,5 @@
+---
+
+
+- name: operation -> {{ ipa_op }}
+  import_tasks: "{{ ipa_op }}.yml"
